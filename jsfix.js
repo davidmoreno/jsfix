@@ -38,5 +38,12 @@ define(['jquery'],function($){
 		$el.removeAttr(fix)
 	}
 	
+	d.register('js-require', function($el, mod){
+		require([mod],function(a){
+			if (a.load)
+				a.load($el)
+		})
+	})
+	
 	return d
 })
