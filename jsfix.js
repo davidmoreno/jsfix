@@ -11,7 +11,7 @@ define(['jquery'],function($){
 		
 		// ASpply to current existing
 		$('['+name+']').each(function(){
-			d.jsfixdo(name, $(this))
+			d.do(name, $(this))
 		})
 	}
 	d.unregister = function(name){
@@ -22,13 +22,13 @@ define(['jquery'],function($){
 			for (var i in d.__jsfix__){
 				var els=$('['+i+']')
 				if (els){
-					els.each(function(){ d.jsfixdo(i, $(this)) })
+					els.each(function(){ d.do(i, $(this)) })
 				}
 			}
 		}
 	}
 	
-	d.jsfixdo = function(fix, $el){
+	d.do = function(fix, $el){
 		try{
 			d.__jsfix__[fix]($el)
 		}
