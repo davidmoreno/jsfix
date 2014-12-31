@@ -57,9 +57,11 @@ define(['jquery'],function($){
 		*   <a href="#_" js-click="register.openDialog">Register</a>
 		*/
 	d.fix = function($el){
-		if ($(d.__jsfix__all__)){ // Gross search, should be faster than many small searches.
+		// Gross search, should be faster than many small searches.
+		if ($.merge( $el.find(d.__jsfix__all__), $el.filter(d.__jsfix__all__) )){
 			for (var i in d.__jsfix__){
-				var els=$('['+i+']')
+				var sel='['+i+']'
+				var els=$.merge( $el.find(sel), $el.filter(sel) )
 				if (els){
 					els.each(function(){ d.do(i, $(this)) })
 				}
